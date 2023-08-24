@@ -9,8 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.5.3
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
       - uses: actions/setup-node@v3.8.1
       - name: Install package
         run: yarn install
@@ -18,12 +16,10 @@ jobs:
         run: yarn build
       - name: Commit files
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
           git --work-tree dist add --all
           git --work-tree dist commit -m "Deploy"
       - name: Push changes
-        run: git push origin HEAD:gh-pages --force
+        uses: ad-m/github-push-action@master
       - name: Cleaning up
         run: rm -r dist
     
