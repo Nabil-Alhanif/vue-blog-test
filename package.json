@@ -7,7 +7,7 @@
 		"dev": "vite",
 		"build": "vite build",
 		"preview": "vite preview",
-		"deploy": "sh scripts/deploy.sh"
+		"deploy": "sh .github/scripts/deploy.sh"
 	},
 	"dependencies": {
 		"firebase": "^10.3.0",
