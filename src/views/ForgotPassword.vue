@@ -26,8 +26,6 @@
 
 <script>
 import email from "../assets/Icons/envelope-regular.svg";
-import Modal from "../components/Modal";
-import Loading from "../components/Loading";
 </script>
 
 <style lang="scss" scoped>

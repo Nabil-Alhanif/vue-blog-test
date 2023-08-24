@@ -29,8 +29,6 @@
 </template>
 
 <script>
-import BlogCoverPreview from "../components/BlogCoverPreview";
-import Loading from "../components/Loading";
 </script>
 
 <style lang="scss">

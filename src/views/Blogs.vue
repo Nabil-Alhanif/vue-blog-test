@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import BlogCard from "../components/BlogCard";
 </script>
 
 <style lang="scss" scoped>
