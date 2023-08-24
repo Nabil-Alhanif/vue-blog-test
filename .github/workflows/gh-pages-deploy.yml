@@ -7,14 +7,21 @@ jobs:
   gh-pages-deploy:
     name: Deploying to Github Pages
     runs-on: ubuntu-latest
-    with:
-        - github_token: ${{ secrets.ACT_PAT }}
     steps:
-        - uses: actions/checkout@v3.5.3
-        - uses: actions/setup-node@v3.8.1
-        - name: Install packages
-          run: yarn install
-        - name: Set Creds
-          run: git config user.name "Nabil-Alhanif" && git config user.email "nabil.alhanif@protonmail.com"
-        - name: Deploy
-          run: yarn deploy
+      - uses: actions/checkout@v3.5.3
+      - uses: actions/setup-node@v3.8.1
+      - name: Install package
+        run: yarn install
+      - name: Building package
+        run: yarn build
+      - name: Commit files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -a -m "Deploy"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.ACT_PAT }}
+          branch: gh-pages
+    
