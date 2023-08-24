@@ -1,0 +1,18 @@
+name: Deploy to Github Pages
+on:
+  push:
+    branches:
+      - master
+jobs:
+  gh-pages-deploy:
+    name: Deploying to Github Pages
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v3.5.3
+        - uses: actions/setup-node@v3.8.1
+        - name: Install packages
+          run: yarn install
+        - name: Set Creds
+          run: git config user.name "Nabil-Alhanif" && git config user.email "nabil.alhanif@protonmail.com"
+        - name: Deploy
+          run: yarn deploy
