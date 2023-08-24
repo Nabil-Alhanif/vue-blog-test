@@ -23,10 +23,7 @@ jobs:
           git --work-tree dist add --all
           git --work-tree dist commit -m "Deploy"
       - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.PAT_TOKEN }}
-          branch: gh-pages
+        run: git push origin HEAD:gh-pages --force
       - name: Cleaning up
         run: rm -r dist
     
