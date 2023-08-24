@@ -16,6 +16,8 @@ jobs:
         run: yarn build
       - name: Commit files
         run: |
+          git config --local user.email "nabil.alhanif@protonmail.com"
+          git config --local user.name "Nabil-Alhanif"
           git --work-tree dist add --all
           git --work-tree dist commit -m "Deploy"
       - name: Push changes
